@@ -1,0 +1,96 @@
+﻿@page
+<style>
+  #authorisation .form-model .input-container i{
+      background-color: mediumspringgreen;
+  }
+   #authorisation .container input:checked ~ .checkmark {
+        background-color: mediumspringgreen;
+    }
+</style>
+<div id="loginModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="closeauth">&times;</span>
+
+        <form id="authorisation" method="post" onsubmit="LoginUser();">
+            <h1 style="text-align: center;">Sign in</h1>
+            <label class="container">
+
+                <input name="authuser" value="employer" type="radio">
+                <span class="checkmark"></span>
+                Employer
+            </label>
+            <label class="container">
+                <input name="authuser" value="student" type="radio" checked>
+                <span class="checkmark"></span>
+                Student
+            </label>
+
+            <hr />
+            <h4 id="autherror" style="color: crimson; text-align: center; font-weight: normal;"></h4>
+            <div class="form-model" style="margin-top: 30px;">
+
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="email" placeholder="Enter your email..." id="AuthEmail">
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-key icon"></i>
+                    <input class="input-field" type="password" placeholder="Enter your password..." id="AuthPassword">
+                </div>
+
+                <button type="submit" class="btn" style="background-color: mediumspringgreen;">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    var loginmodal = document.getElementById("loginModal");
+    var loginbtn = document.getElementById("loginBtn");
+    var loginspan = document.getElementsByClassName("closeauth")[0];
+    loginbtn.onclick = function () {
+        loginmodal.style.display = "block";
+    }
+    loginspan.onclick = function () {
+        loginmodal.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == loginmodal) {
+            loginmodal.style.display = "none";
+        }
+    }
+    $('#authorisation').submit(function (e) {
+        let user = {
+            Email: $('#AuthEmail').val(),
+            Password: $('#AuthPassword').val()
+        };
+        let authurl = "";
+        let role = $('input[name="authuser"]:checked').val();
+        if (role === 'employer') {
+            authurl = "users/employers/auth/login";
+        } else {
+            authurl = "users/students/auth/login";
+        }
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: "/" + authurl,
+            data: JSON.stringify(user),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                window.location.reload();
+            },
+            error: function (response) {
+                if (response.status === 400) {
+                    $('#autherror').html("Fill all fields");
+                } else if (response.status == 401) {
+                    $('#autherror').html("Username or password is incorrect");
+                }
+            }
+        });
+    });
+</script>

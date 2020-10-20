@@ -1,0 +1,55 @@
+﻿@page
+<script>
+    var url = substr(5, location.pathname);
+    $.get(
+        url
+    ).done(function (data) {
+        let ads = data;
+        for (let i = 0; i < data.length; i++) {
+            $('.advertisementspos').append('<div class="advertisement"><h1>' + ads[i].title + '</h1>' +
+                '<h3>Зарплата: ' + ads[i].salary + ' KZT</h3><a href="/home/advertisements/id=' + ads[i].advertisementId + '">Узнать больше...</a></div>');
+        }
+    });
+</script>
+<style>
+    .advertisementspos {
+        font-family: Bahnschrift, Arial, Helvetica, sans-serif;
+    }
+
+        .advertisementspos .advertisement {
+            margin: 40px 0;
+            background: white;
+            border: 2px solid black;
+            padding: 20px;
+            color: black;
+        }
+
+        .advertisementspos h1 {
+            border-bottom: 2px solid crimson;
+            padding-bottom: 10px;
+            margin: 20px 0;
+            font-size: 2em;
+        }
+
+        .advertisementspos h3 {
+            color: dodgerblue;
+            margin: 20px 0;
+        }
+
+        .advertisementspos a {
+            background-color: dodgerblue;
+            border: 2px solid white;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            border: 2px solid black;
+        }
+
+            .advertisementspos a:hover {
+                color: black;
+                background-color: mediumspringgreen;
+            }
+</style>
+<div class="advertisementspos">
+
+</div>
