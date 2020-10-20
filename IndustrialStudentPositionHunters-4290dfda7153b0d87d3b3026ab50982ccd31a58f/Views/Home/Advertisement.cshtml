@@ -1,0 +1,67 @@
+﻿<script>
+    var url = substr(5, location.pathname);
+    $.get(
+        url
+    ).done(function (data) {
+        let ad = data;
+        let emp = ad.employer;
+        $('.adstitle').html(ad.title);
+        $('.adssalary').html('Зарплата: ' + ad.salary + ' KZT');
+        $('.adscompany').html('Компания: ' + emp.companyName);
+        $('.adsinfo').html(ad.description);
+        $('.contact-name').html(emp.firstName + " " + emp.lastName);
+        $('.contact-email').html('Почта: ' + emp.email);
+    });
+</script>
+<style>
+    .adsblock {
+        font-family: Bahnschrift, Arial, serif;
+        padding: 20px;
+        border: 2px solid black;
+        background: white;
+    }
+
+    .adstitle {
+        font-style: italic;
+        font-size: 2.5em;
+    }
+
+    .adssalary {
+        margin-left: 30px;
+        font-size: 20px;
+        color: dodgerblue;
+    }
+
+    .adscompany {
+        font-size: 25px;
+        font-weight: bold;
+        margin: 30px 0;
+        color: crimson;
+        margin-left: 30px;
+    }
+
+    .contact-list {
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+        padding: 10px;
+        list-style-type: none;
+    }
+
+    .adsinfo {
+        padding: 10px;
+        font-size: 1.3em;
+        color: black;
+    }
+</style>
+<div class="adsblock">
+    <h1 class="adstitle" style="margin: 20px 0;"></h1>
+    <div class="adssalary" style="margin: 20px 0;"></div>
+    <div class="adscompany" style="margin: 20px 0;"></div>
+    <div class="adsinfo" style="margin: 20px 0;">
+    </div>
+    <ul class="contact-list" style="margin: 20px 0;">
+        <h2 class="contact-title">Контакты:</h2>
+        <li class="contact-name">Жасмуханова Жанна</li>
+        <li class="contact-email">Почта: z.zhasmuhanova@gmail.com</li>
+    </ul>
+</div>
