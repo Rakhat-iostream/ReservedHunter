@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\source\\repos\\StudentPositionHunters\\IndustrialStudentPositionHunters.csproj": {}
+    "C:\\Users\\ASUS\\source\\repos\\NewStudentPos\\IndustrialStudentPositionHunters.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\source\\repos\\StudentPositionHunters\\IndustrialStudentPositionHunters.csproj": {
+    "C:\\Users\\ASUS\\source\\repos\\NewStudentPos\\IndustrialStudentPositionHunters.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\StudentPositionHunters\\IndustrialStudentPositionHunters.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\NewStudentPos\\IndustrialStudentPositionHunters.csproj",
         "projectName": "IndustrialStudentPositionHunters",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\StudentPositionHunters\\IndustrialStudentPositionHunters.csproj",
+        "projectPath": "C:\\Users\\ASUS\\source\\repos\\NewStudentPos\\IndustrialStudentPositionHunters.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\StudentPositionHunters\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\source\\repos\\NewStudentPos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
